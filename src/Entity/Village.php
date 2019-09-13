@@ -38,6 +38,12 @@ class Village
      */
     private $wardid;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ward", inversedBy="villages")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $ward;
+
     public function getVillageid(): ?string
     {
         return $this->villageid;
@@ -63,6 +69,18 @@ class Village
     public function setWardid(?Ward $wardid): self
     {
         $this->wardid = $wardid;
+
+        return $this;
+    }
+
+    public function getWard(): ?Ward
+    {
+        return $this->ward;
+    }
+
+    public function setWard(?Ward $ward): self
+    {
+        $this->ward = $ward;
 
         return $this;
     }

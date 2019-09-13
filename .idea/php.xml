@@ -2,7 +2,6 @@
 <project version="4">
   <component name="PhpIncludePathManager">
     <include_path>
-      <path value="$PROJECT_DIR$/vendor/webonyx/graphql-php" />
       <path value="$PROJECT_DIR$/vendor/api-platform/api-pack" />
       <path value="$PROJECT_DIR$/vendor/api-platform/core" />
       <path value="$PROJECT_DIR$/vendor/composer" />
