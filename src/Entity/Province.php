@@ -17,11 +17,11 @@ class Province
     /**
      * @var string
      *
-     * @ORM\Column(name="provinceid", type="string", length=20, nullable=false)
+     * @ORM\Column(name="id", type="string", length=20, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $provinceid;
+    private $id;
 
     /**
      * @var string
@@ -40,9 +40,16 @@ class Province
         $this->districts = new ArrayCollection();
     }
 
-    public function getProvinceid(): ?string
+    public function __toString()
     {
-        return $this->provinceid;
+
+        return $this->getName();
+
+    }
+
+    public function getId(): ?string
+    {
+        return $this->id;
     }
 
     public function getName(): ?string

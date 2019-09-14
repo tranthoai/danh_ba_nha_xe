@@ -17,11 +17,11 @@ class Ward
     /**
      * @var string
      *
-     * @ORM\Column(name="wardid", type="string", length=20, nullable=false)
+     * @ORM\Column(name="id", type="string", length=20, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $wardid;
+    private $id;
 
     /**
      * @var string
@@ -29,16 +29,6 @@ class Ward
      * @ORM\Column(name="name", type="string", length=191, nullable=false)
      */
     private $name;
-
-    /**
-     * @var \District
-     *
-     * @ORM\ManyToOne(targetEntity="District")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="districtid", referencedColumnName="districtid")
-     * })
-     */
-    private $districtid;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\District", inversedBy="wards")
@@ -56,9 +46,16 @@ class Ward
         $this->villages = new ArrayCollection();
     }
 
-    public function getWardid(): ?string
+    public function __toString()
     {
-        return $this->wardid;
+
+        return $this->getName();
+
+    }
+
+    public function getId(): ?string
+    {
+        return $this->id;
     }
 
     public function getName(): ?string
@@ -69,18 +66,6 @@ class Ward
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    public function getDistrictid(): ?District
-    {
-        return $this->districtid;
-    }
-
-    public function setDistrictid(?District $districtid): self
-    {
-        $this->districtid = $districtid;
 
         return $this;
     }
