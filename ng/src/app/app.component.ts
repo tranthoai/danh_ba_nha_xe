@@ -12,7 +12,6 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
 
     alert(3333333)
-    throw new Error("Method not implemented.");
 
   }
 
