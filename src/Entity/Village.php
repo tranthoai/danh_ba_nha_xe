@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Village
  *
+ * @ApiResource
  * @ORM\Table(name="village", indexes={@ORM\Index(name="village_ward_wardid_fk", columns={"wardid"})})
  * @ORM\Entity
  */
