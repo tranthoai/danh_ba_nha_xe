@@ -101256,13 +101256,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-const routes = [
-    {
-        path: '**',
-        redirectTo: '',
-        pathMatch: 'full'
-    }
-];
+const routes = [];
 let AppRoutingModule = class AppRoutingModule {
 };
 AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
