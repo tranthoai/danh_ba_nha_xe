@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ApiResource
  * @ORM\Table(name="ward", indexes={@ORM\Index(name="ward_district_district_id_fk", columns={"district_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\WardRepository")
  */
 class Ward
 {

@@ -12,7 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ApiResource
  * @ORM\Table(name="province")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\ProvinceRepository")
  */
 class Province
 {
