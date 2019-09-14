@@ -1,27 +1,20 @@
-<?php
-
-use App\Kernel;
-use Symfony\Component\Debug\Debug;
-use Symfony\Component\HttpFoundation\Request;
-
-require dirname(__DIR__).'/config/bootstrap.php';
-
-if ($_SERVER['APP_DEBUG']) {
-    umask(0000);
-
-    Debug::enable();
-}
-
-if ($trustedProxies = $_SERVER['TRUSTED_PROXIES'] ?? $_ENV['TRUSTED_PROXIES'] ?? false) {
-    Request::setTrustedProxies(explode(',', $trustedProxies), Request::HEADER_X_FORWARDED_ALL ^ Request::HEADER_X_FORWARDED_HOST);
-}
-
-if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false) {
-    Request::setTrustedHosts([$trustedHosts]);
-}
-
-$kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
-$request = Request::createFromGlobals();
-$response = $kernel->handle($request);
-$response->send();
-$kernel->terminate($request, $response);
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Ng</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<app-root></app-root>
+<script src="http://127.0.0.1:8000/ng/dev/polyfills-es5.js" nomodule defer></script>
+<script src="http://127.0.0.1:8000/ng/dev/polyfills-es2015.js" type="module"></script>
+<script src="http://127.0.0.1:8000/ng/dev/runtime-es2015.js" type="module"></script>
+<script src="http://127.0.0.1:8000/ng/dev/main-es2015.js" type="module"></script>
+<script src="http://127.0.0.1:8000/ng/dev/runtime-es5.js" nomodule defer></script>
+<script src="http://127.0.0.1:8000/ng/dev/main-es5.js" nomodule defer></script>
+</body>
+</html>
