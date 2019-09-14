@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Ward
  *
  * @ApiResource
- * @ORM\Table(name="ward", indexes={@ORM\Index(name="ward_district_districtid_fk", columns={"districtid"})})
+ * @ORM\Table(name="ward", indexes={@ORM\Index(name="ward_district_district_id_fk", columns={"district_id"})})
  * @ORM\Entity
  */
 class Ward

@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  * District
  *
  * @ApiResource
- * @ORM\Table(name="district", indexes={@ORM\Index(name="district_province_provinceid_fk", columns={"provinceid"})})
+ * @ORM\Table(name="district", indexes={@ORM\Index(name="district_province_province_id_fk", columns={"province_id"})})
  * @ORM\Entity
  */
 class District
