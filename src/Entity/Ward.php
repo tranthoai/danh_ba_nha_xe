@@ -38,6 +38,11 @@ class Ward
      */
     private $district;
 
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
     public function getId(): ?string
     {
         return $this->id;
