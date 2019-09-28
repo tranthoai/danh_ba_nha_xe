@@ -18,12 +18,13 @@ export class NhaXeService {
   getAllNhaXes() {
 
     let headers = new HttpHeaders();
-    headers.append('Content-Type', 'application/json');
+    headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+    headers = headers.set('Accept', 'application/json');
 
     let params = Object.create(null);
 
     return this.http.get(
-      `${this.API_URL}/nha_xes.json`,
+      `${this.API_URL}/nha_xes`,
       {
         headers,
         params

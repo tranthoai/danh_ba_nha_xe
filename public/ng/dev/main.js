@@ -104112,9 +104112,10 @@ let NhaXeService = class NhaXeService {
     }
     getAllNhaXes() {
         let headers = new _angular_common_http__WEBPACK_IMPORTED_MODULE_2__["HttpHeaders"]();
-        headers.append('Content-Type', 'application/json');
+        headers = headers.set('Content-Type', 'application/json; charset=utf-8');
+        headers = headers.set('Accept', 'application/json');
         let params = Object.create(null);
-        return this.http.get(`${this.API_URL}/nha_xes.json`, {
+        return this.http.get(`${this.API_URL}/nha_xes`, {
             headers,
             params
         });
