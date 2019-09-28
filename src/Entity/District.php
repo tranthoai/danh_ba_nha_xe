@@ -2,17 +2,13 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * District
  *
- * @ApiResource
- * @ORM\Table(name="district", indexes={@ORM\Index(name="district_province_province_id_fk", columns={"province_id"})})
- * @ORM\Entity(repositoryClass="App\Repository\DistrictRepository")
+ * @ORM\Table(name="district", indexes={@ORM\Index(name="district_province_provinceid_fk", columns={"province_id"})})
+ * @ORM\Entity
  */
 class District
 {
@@ -33,27 +29,14 @@ class District
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Province", inversedBy="districts")
-     * @ORM\JoinColumn(nullable=false)
+     * @var \Province
+     *
+     * @ORM\ManyToOne(targetEntity="Province")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="province_id", referencedColumnName="id")
+     * })
      */
     private $province;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Ward", mappedBy="district")
-     */
-    private $wards;
-
-    public function __construct()
-    {
-        $this->wards = new ArrayCollection();
-    }
-
-    public function __toString()
-    {
-
-        return $this->getName();
-
-    }
 
     public function getId(): ?string
     {
@@ -80,37 +63,6 @@ class District
     public function setProvince(?Province $province): self
     {
         $this->province = $province;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Ward[]
-     */
-    public function getWards(): Collection
-    {
-        return $this->wards;
-    }
-
-    public function addWard(Ward $ward): self
-    {
-        if (!$this->wards->contains($ward)) {
-            $this->wards[] = $ward;
-            $ward->setDistrict($this);
-        }
-
-        return $this;
-    }
-
-    public function removeWard(Ward $ward): self
-    {
-        if ($this->wards->contains($ward)) {
-            $this->wards->removeElement($ward);
-            // set the owning side to null (unless already changed)
-            if ($ward->getDistrict() === $this) {
-                $ward->setDistrict(null);
-            }
-        }
 
         return $this;
     }

@@ -5,30 +5,30 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Province
+ * RatingType
  *
- * @ORM\Table(name="province")
+ * @ORM\Table(name="rating_type")
  * @ORM\Entity
  */
-class Province
+class RatingType
 {
     /**
-     * @var string
+     * @var int
      *
-     * @ORM\Column(name="id", type="string", length=20, nullable=false)
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @var string
+     * @var string|null
      *
-     * @ORM\Column(name="name", type="string", length=191, nullable=false)
+     * @ORM\Column(name="name", type="string", length=50, nullable=true)
      */
     private $name;
 
-    public function getId(): ?string
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -38,7 +38,7 @@ class Province
         return $this->name;
     }
 
-    public function setName(string $name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 

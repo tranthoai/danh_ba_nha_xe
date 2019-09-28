@@ -2,15 +2,13 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Village
  *
- * @ApiResource
- * @ORM\Table(name="village", indexes={@ORM\Index(name="village_ward_ward_id_fk", columns={"ward_id"})})
- * @ORM\Entity(repositoryClass="App\Repository\VillageRepository")
+ * @ORM\Table(name="village", indexes={@ORM\Index(name="village_ward_wardid_fk", columns={"ward_id"})})
+ * @ORM\Entity
  */
 class Village
 {
@@ -31,22 +29,14 @@ class Village
     private $name;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Ward", inversedBy="villages")
-     * @ORM\JoinColumn(nullable=false)
+     * @var \Ward
+     *
+     * @ORM\ManyToOne(targetEntity="Ward")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="ward_id", referencedColumnName="id")
+     * })
      */
     private $ward;
-
-    public function __construct()
-    {
-
-    }
-
-    public function __toString()
-    {
-
-        return $this->getName();
-
-    }
 
     public function getId(): ?string
     {
