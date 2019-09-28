@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * NhaXe
  *
- * @ORM\Table(name="nha_xe")
+ * @ORM\Table(name="nha_xe", indexes={@ORM\Index(name="nha_xe_province_id_fk_2", columns={"address2_province_id"}), @ORM\Index(name="nha_xe_village_id_fk_2", columns={"address2_village_id"}), @ORM\Index(name="nha_xe_ward_id_fk_2", columns={"address2_ward_id"}), @ORM\Index(name="nha_xe_district_id_fk", columns={"address1_district_id"}), @ORM\Index(name="nha_xe_district_id_fk_2", columns={"address2_district_id"}), @ORM\Index(name="nha_xe_village_id_fk", columns={"address1_village_id"}), @ORM\Index(name="nha_xe_ward_id_fk", columns={"address1_ward_id"}), @ORM\Index(name="nha_xe_province_id_fk", columns={"address1_province_id"})})
  * @ORM\Entity
  */
 class NhaXe
@@ -99,69 +99,6 @@ class NhaXe
     private $email3;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="address1_province_id", type="string", length=20, nullable=true)
-     */
-    private $address1ProvinceId;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="address1_district_id", type="string", length=20, nullable=true)
-     */
-    private $address1DistrictId;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="address1_ward_id", type="string", length=20, nullable=true)
-     */
-    private $address1WardId;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="address1_village_id", type="string", length=20, nullable=true)
-     */
-    private $address1VillageId;
-
-    /**
-     * @var int|null
-     *
-     * @ORM\Column(name="address1_street", type="integer", nullable=true)
-     */
-    private $address1Street;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="address2_province_id", type="string", length=20, nullable=true)
-     */
-    private $address2ProvinceId;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="address2_district_id", type="string", length=20, nullable=true)
-     */
-    private $address2DistrictId;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="address2_ward_id", type="string", length=20, nullable=true)
-     */
-    private $address2WardId;
-
-    /**
-     * @var string|null
-     *
-     * @ORM\Column(name="address2_village_id", type="string", length=20, nullable=true)
-     */
-    private $address2VillageId;
-
-    /**
      * @var int|null
      *
      * @ORM\Column(name="status", type="integer", nullable=true)
@@ -171,16 +108,89 @@ class NhaXe
     /**
      * @var int|null
      *
-     * @ORM\Column(name="address2_street", type="integer", nullable=true)
-     */
-    private $address2Street;
-
-    /**
-     * @var int|null
-     *
      * @ORM\Column(name="so_luong_xe", type="integer", nullable=true)
      */
     private $soLuongXe;
+
+    /**
+     * @var \District
+     *
+     * @ORM\ManyToOne(targetEntity="District")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="address1_district_id", referencedColumnName="id")
+     * })
+     */
+    private $address1District;
+
+    /**
+     * @var \District
+     *
+     * @ORM\ManyToOne(targetEntity="District")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="address2_district_id", referencedColumnName="id")
+     * })
+     */
+    private $address2District;
+
+    /**
+     * @var \Province
+     *
+     * @ORM\ManyToOne(targetEntity="Province")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="address1_province_id", referencedColumnName="id")
+     * })
+     */
+    private $address1Province;
+
+    /**
+     * @var \Province
+     *
+     * @ORM\ManyToOne(targetEntity="Province")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="address2_province_id", referencedColumnName="id")
+     * })
+     */
+    private $address2Province;
+
+    /**
+     * @var \Village
+     *
+     * @ORM\ManyToOne(targetEntity="Village")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="address1_village_id", referencedColumnName="id")
+     * })
+     */
+    private $address1Village;
+
+    /**
+     * @var \Village
+     *
+     * @ORM\ManyToOne(targetEntity="Village")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="address2_village_id", referencedColumnName="id")
+     * })
+     */
+    private $address2Village;
+
+    /**
+     * @var \Ward
+     *
+     * @ORM\ManyToOne(targetEntity="Ward")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="address1_ward_id", referencedColumnName="id")
+     * })
+     */
+    private $address1Ward;
+
+    /**
+     * @var \Ward
+     *
+     * @ORM\ManyToOne(targetEntity="Ward")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="address2_ward_id", referencedColumnName="id")
+     * })
+     */
+    private $address2Ward;
 
     public function getId(): ?int
     {
@@ -319,114 +329,6 @@ class NhaXe
         return $this;
     }
 
-    public function getAddress1ProvinceId(): ?string
-    {
-        return $this->address1ProvinceId;
-    }
-
-    public function setAddress1ProvinceId(?string $address1ProvinceId): self
-    {
-        $this->address1ProvinceId = $address1ProvinceId;
-
-        return $this;
-    }
-
-    public function getAddress1DistrictId(): ?string
-    {
-        return $this->address1DistrictId;
-    }
-
-    public function setAddress1DistrictId(?string $address1DistrictId): self
-    {
-        $this->address1DistrictId = $address1DistrictId;
-
-        return $this;
-    }
-
-    public function getAddress1WardId(): ?string
-    {
-        return $this->address1WardId;
-    }
-
-    public function setAddress1WardId(?string $address1WardId): self
-    {
-        $this->address1WardId = $address1WardId;
-
-        return $this;
-    }
-
-    public function getAddress1VillageId(): ?string
-    {
-        return $this->address1VillageId;
-    }
-
-    public function setAddress1VillageId(?string $address1VillageId): self
-    {
-        $this->address1VillageId = $address1VillageId;
-
-        return $this;
-    }
-
-    public function getAddress1Street(): ?int
-    {
-        return $this->address1Street;
-    }
-
-    public function setAddress1Street(?int $address1Street): self
-    {
-        $this->address1Street = $address1Street;
-
-        return $this;
-    }
-
-    public function getAddress2ProvinceId(): ?string
-    {
-        return $this->address2ProvinceId;
-    }
-
-    public function setAddress2ProvinceId(?string $address2ProvinceId): self
-    {
-        $this->address2ProvinceId = $address2ProvinceId;
-
-        return $this;
-    }
-
-    public function getAddress2DistrictId(): ?string
-    {
-        return $this->address2DistrictId;
-    }
-
-    public function setAddress2DistrictId(?string $address2DistrictId): self
-    {
-        $this->address2DistrictId = $address2DistrictId;
-
-        return $this;
-    }
-
-    public function getAddress2WardId(): ?string
-    {
-        return $this->address2WardId;
-    }
-
-    public function setAddress2WardId(?string $address2WardId): self
-    {
-        $this->address2WardId = $address2WardId;
-
-        return $this;
-    }
-
-    public function getAddress2VillageId(): ?string
-    {
-        return $this->address2VillageId;
-    }
-
-    public function setAddress2VillageId(?string $address2VillageId): self
-    {
-        $this->address2VillageId = $address2VillageId;
-
-        return $this;
-    }
-
     public function getStatus(): ?int
     {
         return $this->status;
@@ -439,18 +341,6 @@ class NhaXe
         return $this;
     }
 
-    public function getAddress2Street(): ?int
-    {
-        return $this->address2Street;
-    }
-
-    public function setAddress2Street(?int $address2Street): self
-    {
-        $this->address2Street = $address2Street;
-
-        return $this;
-    }
-
     public function getSoLuongXe(): ?int
     {
         return $this->soLuongXe;
@@ -459,6 +349,102 @@ class NhaXe
     public function setSoLuongXe(?int $soLuongXe): self
     {
         $this->soLuongXe = $soLuongXe;
+
+        return $this;
+    }
+
+    public function getAddress1District(): ?District
+    {
+        return $this->address1District;
+    }
+
+    public function setAddress1District(?District $address1District): self
+    {
+        $this->address1District = $address1District;
+
+        return $this;
+    }
+
+    public function getAddress2District(): ?District
+    {
+        return $this->address2District;
+    }
+
+    public function setAddress2District(?District $address2District): self
+    {
+        $this->address2District = $address2District;
+
+        return $this;
+    }
+
+    public function getAddress1Province(): ?Province
+    {
+        return $this->address1Province;
+    }
+
+    public function setAddress1Province(?Province $address1Province): self
+    {
+        $this->address1Province = $address1Province;
+
+        return $this;
+    }
+
+    public function getAddress2Province(): ?Province
+    {
+        return $this->address2Province;
+    }
+
+    public function setAddress2Province(?Province $address2Province): self
+    {
+        $this->address2Province = $address2Province;
+
+        return $this;
+    }
+
+    public function getAddress1Village(): ?Village
+    {
+        return $this->address1Village;
+    }
+
+    public function setAddress1Village(?Village $address1Village): self
+    {
+        $this->address1Village = $address1Village;
+
+        return $this;
+    }
+
+    public function getAddress2Village(): ?Village
+    {
+        return $this->address2Village;
+    }
+
+    public function setAddress2Village(?Village $address2Village): self
+    {
+        $this->address2Village = $address2Village;
+
+        return $this;
+    }
+
+    public function getAddress1Ward(): ?Ward
+    {
+        return $this->address1Ward;
+    }
+
+    public function setAddress1Ward(?Ward $address1Ward): self
+    {
+        $this->address1Ward = $address1Ward;
+
+        return $this;
+    }
+
+    public function getAddress2Ward(): ?Ward
+    {
+        return $this->address2Ward;
+    }
+
+    public function setAddress2Ward(?Ward $address2Ward): self
+    {
+        $this->address2Ward = $address2Ward;
 
         return $this;
     }

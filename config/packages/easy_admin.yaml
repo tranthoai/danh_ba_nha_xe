@@ -5,3 +5,13 @@ easy_admin:
     - App\Entity\Ward
     - App\Entity\Village
     - App\Entity\NhaXe
+    - App\Entity\DichVu
+    - App\Entity\LoaiXe
+    - App\Entity\NhaXeNhanXet
+    - App\Entity\NhaXeRating
+    - App\Entity\NhaXeXe
+    - App\Entity\Rating
+    - App\Entity\RatingType
+    - App\Entity\TuyenDuong
+    - App\Entity\User
+    - App\Entity\Xe
