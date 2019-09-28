@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
- * Province
+ * Province.
  *
  * @ApiResource
  * @ORM\Table(name="province")
@@ -51,6 +51,4 @@ class Province
 
         return $this;
     }
-
-
 }

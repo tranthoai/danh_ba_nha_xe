@@ -5,22 +5,10 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
-
 /**
- * NhaXe
+ * NhaXe.
  *
- * @ApiResource(
- *      attributes={
- *          "formats"={
- *              "jsonld",
- *              "json",
- *              "html",
- *              "jsonhal",
- *              "csv"={"text/csv"}
- *          }
- *     }
- * )
- *
+ * @ApiResource()
  * @ORM\Table(name="nha_xe", indexes={@ORM\Index(name="nha_xe_province_id_fk_2", columns={"address2_province_id"}), @ORM\Index(name="nha_xe_village_id_fk_2", columns={"address2_village_id"}), @ORM\Index(name="nha_xe_ward_id_fk_2", columns={"address2_ward_id"}), @ORM\Index(name="nha_xe_district_id_fk", columns={"address1_district_id"}), @ORM\Index(name="nha_xe_district_id_fk_2", columns={"address2_district_id"}), @ORM\Index(name="nha_xe_village_id_fk", columns={"address1_village_id"}), @ORM\Index(name="nha_xe_ward_id_fk", columns={"address1_ward_id"}), @ORM\Index(name="nha_xe_province_id_fk", columns={"address1_province_id"})})
  * @ORM\Entity
  */
@@ -462,6 +450,4 @@ class NhaXe
 
         return $this;
     }
-
-
 }

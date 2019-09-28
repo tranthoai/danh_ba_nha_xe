@@ -6,7 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 
 /**
- * Village
+ * Village.
  *
  * @ApiResource
  * @ORM\Table(name="village", indexes={@ORM\Index(name="village_ward_wardid_fk", columns={"ward_id"})})
@@ -73,6 +73,4 @@ class Village
 
         return $this;
     }
-
-
 }
