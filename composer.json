@@ -6,12 +6,7 @@
     "ext-ctype": "*",
     "ext-iconv": "*",
     "api-platform/api-pack": "1.2.0",
-    "symfony/console": "4.3.4",
     "symfony/dotenv": "4.3.4",
-    "symfony/flex": "1.4.6",
-    "symfony/framework-bundle": "4.3.4",
-    "symfony/yaml": "4.3.4",
-    "easycorp/easyadmin-bundle": "2.3.0",
     "symfony/asset": "4.3.4",
     "symfony/console": "4.3.4",
     "symfony/expression-language": "4.3.4",
@@ -50,18 +45,12 @@
     "twig/extensions": "1.5.4",
     "beberlei/doctrineextensions": "1.2.3",
     "stof/doctrine-extensions-bundle": "1.3.0",
-    "cboden/ratchet": "0.4.1",
-    "predis/predis": "1.1.1",
-    "t1st3/php-json-minify": "0.6.2",
-    "knplabs/knp-paginator-bundle": "4.0.0",
     "doctrine/doctrine-fixtures-bundle": "3.2.2",
-    "fzaninotto/faker": "1.8.0",
-    "php-amqplib/rabbitmq-bundle": "1.14.4"
+    "fzaninotto/faker": "1.8.0"
   },
   "require-dev": {
     "symfony/maker-bundle": "1.13.0",
     "symfony/web-server-bundle": "4.3.4",
-    "symfony/dotenv": "4.3.4",
     "codeception/codeception": "3.1.1",
     "symfony/debug-pack": "1.0.7",
     "symfony/profiler-pack": "1.0.4",
@@ -112,7 +101,7 @@
   },
   "extra": {
     "symfony": {
-      "allow-contrib": false,
+      "allow-contrib": true,
       "require": "4.3.*"
     }
   }
