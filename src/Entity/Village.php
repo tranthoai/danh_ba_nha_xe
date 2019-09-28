@@ -4,11 +4,15 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * Village.
  *
- * @ApiResource
+ * @ApiResource(
+ *     normalizationContext={"groups"={"read"}},
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  * @ORM\Table(name="village", indexes={@ORM\Index(name="village_ward_wardid_fk", columns={"ward_id"})})
  * @ORM\Entity
  */
@@ -17,6 +21,7 @@ class Village
     /**
      * @var string
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="id", type="string", length=20, nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -26,6 +31,7 @@ class Village
     /**
      * @var string
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="name", type="string", length=191, nullable=false)
      */
     private $name;

@@ -4,11 +4,15 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * NhaXe.
  *
- * @ApiResource()
+ * @ApiResource(
+ *     normalizationContext={"groups"={"read"}},
+ *     denormalizationContext={"groups"={"write"}}
+ * )
  * @ORM\Table(name="nha_xe", indexes={@ORM\Index(name="nha_xe_province_id_fk_2", columns={"address2_province_id"}), @ORM\Index(name="nha_xe_village_id_fk_2", columns={"address2_village_id"}), @ORM\Index(name="nha_xe_ward_id_fk_2", columns={"address2_ward_id"}), @ORM\Index(name="nha_xe_district_id_fk", columns={"address1_district_id"}), @ORM\Index(name="nha_xe_district_id_fk_2", columns={"address2_district_id"}), @ORM\Index(name="nha_xe_village_id_fk", columns={"address1_village_id"}), @ORM\Index(name="nha_xe_ward_id_fk", columns={"address1_ward_id"}), @ORM\Index(name="nha_xe_province_id_fk", columns={"address1_province_id"})})
  * @ORM\Entity
  */
@@ -17,6 +21,7 @@ class NhaXe
     /**
      * @var int
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
@@ -40,6 +45,7 @@ class NhaXe
     /**
      * @var string
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="name", type="string", length=255, nullable=false)
      */
     private $name;
@@ -47,6 +53,7 @@ class NhaXe
     /**
      * @var string
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="phone_1", type="string", length=20, nullable=false)
      */
     private $phone1;
@@ -117,6 +124,7 @@ class NhaXe
     /**
      * @var \District
      *
+     * @Groups({"read", "write"})
      * @ORM\ManyToOne(targetEntity="District")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="address1_district_id", referencedColumnName="id")
@@ -127,6 +135,7 @@ class NhaXe
     /**
      * @var \District
      *
+     * @Groups({"read", "write"})
      * @ORM\ManyToOne(targetEntity="District")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="address2_district_id", referencedColumnName="id")
@@ -137,6 +146,7 @@ class NhaXe
     /**
      * @var \Province
      *
+     * @Groups({"read", "write"})
      * @ORM\ManyToOne(targetEntity="Province")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="address1_province_id", referencedColumnName="id")
@@ -147,6 +157,7 @@ class NhaXe
     /**
      * @var \Province
      *
+     * @Groups({"read", "write"})
      * @ORM\ManyToOne(targetEntity="Province")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="address2_province_id", referencedColumnName="id")
@@ -157,6 +168,7 @@ class NhaXe
     /**
      * @var \Village
      *
+     * @Groups({"read", "write"})
      * @ORM\ManyToOne(targetEntity="Village")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="address1_village_id", referencedColumnName="id")
@@ -177,6 +189,8 @@ class NhaXe
     /**
      * @var \Ward
      *
+     * @Groups({"read", "write"})
+     * @Groups({"read", "write"})
      * @ORM\ManyToOne(targetEntity="Ward")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="address1_ward_id", referencedColumnName="id")
@@ -187,6 +201,7 @@ class NhaXe
     /**
      * @var \Ward
      *
+     * @Groups({"read", "write"})
      * @ORM\ManyToOne(targetEntity="Ward")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="address2_ward_id", referencedColumnName="id")
