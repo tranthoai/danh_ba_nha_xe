@@ -61,6 +61,7 @@ class NhaXe
     /**
      * @var string|null
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="phone_2", type="string", length=20, nullable=true)
      */
     private $phone2;
@@ -68,6 +69,7 @@ class NhaXe
     /**
      * @var string|null
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="phone_3", type="string", length=20, nullable=true)
      */
     private $phone3;
@@ -75,6 +77,7 @@ class NhaXe
     /**
      * @var string|null
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="phone_4", type="string", length=20, nullable=true)
      */
     private $phone4;
@@ -82,6 +85,7 @@ class NhaXe
     /**
      * @var string|null
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="phone_5", type="string", length=20, nullable=true)
      */
     private $phone5;
@@ -89,6 +93,7 @@ class NhaXe
     /**
      * @var string|null
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="email_1", type="string", length=50, nullable=true)
      */
     private $email1;
@@ -96,6 +101,7 @@ class NhaXe
     /**
      * @var string|null
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="email_2", type="string", length=50, nullable=true)
      */
     private $email2;
@@ -103,6 +109,7 @@ class NhaXe
     /**
      * @var string|null
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="email_3", type="string", length=50, nullable=true)
      */
     private $email3;
@@ -110,6 +117,7 @@ class NhaXe
     /**
      * @var int|null
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="status", type="integer", nullable=true)
      */
     private $status;
@@ -117,6 +125,7 @@ class NhaXe
     /**
      * @var int|null
      *
+     * @Groups({"read", "write"})
      * @ORM\Column(name="so_luong_xe", type="integer", nullable=true)
      */
     private $soLuongXe;
