@@ -55,7 +55,7 @@ abstract class BaseFixture extends Fixture implements ContainerAwareInterface
     ) {
 
         $this->manager = $manager;
-        $this->faker = Factory::create();
+        $this->faker = Factory::create('vi_VN');
         $this->em = $this->container->get('doctrine')->getManager('default');
 
         if (!$this->em->isOpen()) {

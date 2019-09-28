@@ -5,19 +5,18 @@ namespace App\DataFixtures;
 use App\Entity\District;
 use App\Entity\NhaXe;
 use App\Entity\Province;
-use App\Entity\User;
 use App\Entity\Village;
 use App\Entity\Ward;
-use App\Repository\ProvinceRepository;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\Query;
 
 class NhaXeFixtures extends BaseFixture
 {
-
     /**
      * @param ObjectManager $manager
+     *
      * @return mixed|void
+     *
+     * @throws \Doctrine\DBAL\ConnectionException
      */
     public function loadData(ObjectManager $manager)
     {
@@ -26,11 +25,11 @@ class NhaXeFixtures extends BaseFixture
 
         try {
 
-            /** @var ProvinceRepository $oProvinceRepo */
             $oProvinceRepo = $this->manager->getRepository(Province::class);
             $oDistrictRepo = $this->manager->getRepository(District::class);
             $oWardRepo = $this->manager->getRepository(Ward::class);
             $oVillageRepo = $this->manager->getRepository(Village::class);
+
             $provinces = $oProvinceRepo->findAll();
             $districts = $oDistrictRepo->findAll();
             $wards = $oWardRepo->findAll();
@@ -45,17 +44,17 @@ class NhaXeFixtures extends BaseFixture
                     $wards,
                     $villages
                 ) {
-
                     $nhaXe->setName("Nhà Xe {$count1}");
-                    $nhaXe->setPhone1(
-                        sprintf(
-                            '035239%s%s%s%s',
-                            random_int(0, 9),
-                            random_int(0, 9),
-                            random_int(0, 9),
-                            random_int(0, 9)
-                        )
-                    );
+                    $nhaXe->setPhone1($this->faker->phoneNumber);
+                    $nhaXe->setPhone2($this->faker->phoneNumber);
+                    $nhaXe->setPhone3($this->faker->phoneNumber);
+                    $nhaXe->setPhone4($this->faker->phoneNumber);
+                    $nhaXe->setPhone5($this->faker->phoneNumber);
+
+                    $nhaXe->setEmail1($this->faker->email);
+                    $nhaXe->setEmail2($this->faker->email);
+                    $nhaXe->setEmail3($this->faker->email);
+
                     shuffle($provinces);
                     shuffle($districts);
                     shuffle($wards);
@@ -73,7 +72,6 @@ class NhaXeFixtures extends BaseFixture
                     $nhaXe->setAddress2District($districts[0]);
                     $nhaXe->setAddress2Ward($wards[0]);
                     $nhaXe->setAddress2Village($villages[0]);
-
                 }
             );
 
@@ -91,6 +89,7 @@ class NhaXeFixtures extends BaseFixture
 
     /**
      * @param $className
+     *
      * @throws \Doctrine\DBAL\ConnectionException
      */
     private function truncateData(
@@ -101,6 +100,7 @@ class NhaXeFixtures extends BaseFixture
         $connection = $this->em->getConnection();
 
         try {
+
             $connection->beginTransaction();
 
             $connection->query('SET FOREIGN_KEY_CHECKS=0');
