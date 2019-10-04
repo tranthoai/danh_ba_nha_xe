@@ -141,7 +141,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Location", function() { return Location; });
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /**
- * @license Angular v8.2.8
+ * @license Angular v8.2.9
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -7768,7 +7768,7 @@ function isPlatformWorkerUi(platformId) {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('8.2.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__["Version"]('8.2.9');
 
 /**
  * @fileoverview added by tsickle
@@ -8041,7 +8041,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 /**
- * @license Angular v8.2.8
+ * @license Angular v8.2.9
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -9256,6 +9256,12 @@ if (false) {}
 /**
  * Constructs an instance of `HttpRequestOptions<T>` from a source `HttpMethodOptions` and
  * the given `body`. This function clones the object and adds the body.
+ *
+ * Note that the `responseType` *options* value is a String that identifies the
+ * single data type of the response.
+ * A single overload version of the method handles each response type.
+ * The value of `responseType` cannot be a union, as the combined signature could imply.
+ *
  * @template T
  * @param {?} options
  * @param {?} body
@@ -9274,10 +9280,14 @@ function addBody(options, body) {
 }
 /**
  * Performs HTTP requests.
- *
  * This service is available as an injectable class, with methods to perform HTTP requests.
  * Each request method has multiple signatures, and the return type varies based on
  * the signature that is called (mainly the values of `observe` and `responseType`).
+ *
+ * Note that the `responseType` *options* value is a String that identifies the
+ * single data type of the response.
+ * A single overload version of the method handles each response type.
+ * The value of `responseType` cannot be a union, as the combined signature could imply.
  *
  * \@usageNotes
  * Sample HTTP requests for the [Tour of Heroes](/tutorial/toh-pt0) application.
@@ -10932,7 +10942,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "R3TargetBinder", function() { return R3TargetBinder; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "R3BoundTarget", function() { return R3BoundTarget; });
 /**
- * @license Angular v8.2.8
+ * @license Angular v8.2.9
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -28518,7 +28528,7 @@ function publishFacade(global) {
  * Use of this source code is governed by an MIT-style license that can be
  * found in the LICENSE file at https://angular.io/license
  */
-const VERSION$1 = new Version('8.2.8');
+const VERSION$1 = new Version('8.2.9');
 
 /**
  * @license
@@ -38242,7 +38252,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /**
- * @license Angular v8.2.8
+ * @license Angular v8.2.9
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -62012,7 +62022,7 @@ if (false) {}
  * \@publicApi
  * @type {?}
  */
-const VERSION = new Version('8.2.8');
+const VERSION = new Version('8.2.9');
 
 /**
  * @fileoverview added by tsickle
@@ -79407,7 +79417,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
 /**
- * @license Angular v8.2.8
+ * @license Angular v8.2.9
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -80031,7 +80041,7 @@ if (false) {}
  * \@publicApi
  * @type {?}
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('8.2.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('8.2.9');
 
 /**
  * @fileoverview added by tsickle
@@ -80133,7 +80143,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/common */ "./node_modules/@angular/common/fesm2015/common.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /**
- * @license Angular v8.2.8
+ * @license Angular v8.2.9
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -84105,7 +84115,7 @@ class By {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('8.2.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('8.2.9');
 
 /**
  * @fileoverview added by tsickle
@@ -84212,7 +84222,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
 /**
- * @license Angular v8.2.8
+ * @license Angular v8.2.9
  * (c) 2010-2019 Google LLC. https://angular.io/
  * License: MIT
  */
@@ -85071,17 +85081,14 @@ function defaultUrlMatcher(segments, segmentGroup, route) {
  * into multiple bundles and loading them on demand.
  * To use lazy loading, provide the `loadChildren` property  instead of the `children` property.
  *
- * Given the following example route, the router uses the registered
- * `NgModuleFactoryLoader` to fetch an NgModule associated with 'team'.
- * It then extracts the set of routes defined in that NgModule,
- * and transparently adds those routes to the main configuration.
+ * Given the following example route, the router will lazy load
+ * the associated module on demand using the browser native import system.
  *
  * ```
  * [{
- *   path: 'team/:id',
- *   component: Team,
- *   loadChildren: 'team'
- * }]
+ *   path: 'lazy',
+ *   loadChildren: () => import('./lazy-route/lazy.module').then(mod => mod.LazyModule),
+ * }];
  * ```
  *
  * \@publicApi
@@ -90071,7 +90078,7 @@ class Router {
         this.paramsInheritanceStrategy = 'emptyOnly';
         /**
          * Determines when the router updates the browser URL.
-         * By default (`"deferred"`), udates the browser URL after navigation has finished.
+         * By default (`"deferred"`), updates the browser URL after navigation has finished.
          * Set to `'eager'` to update the browser URL at the beginning of navigation.
          * You can choose to update early so that, if navigation fails,
          * you can show an error message with the URL that failed.
@@ -92579,7 +92586,7 @@ function provideRouterInitializer() {
  * \@publicApi
  * @type {?}
  */
-const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('8.2.8');
+const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_1__["Version"]('8.2.9');
 
 /**
  * @fileoverview added by tsickle
