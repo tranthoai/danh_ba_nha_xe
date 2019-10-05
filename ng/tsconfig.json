@@ -7,6 +7,7 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "module": "esnext",
     "moduleResolution": "node",
     "importHelpers": true,
@@ -17,7 +18,24 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "core-js/es7/reflect": [
+        "node_modules/core-js/proposals/reflect-metadata"
+      ],
+      "core-js/es6/*": [
+        "node_modules/core-js/es/*"
+      ],
+      "core-js/es7/*": [
+        "node_modules/core-js/es/*"
+      ],
+      "@services/*": [
+        "src/app/service/*"
+      ],
+      "@component/*": [
+        "src/app/component/*"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,

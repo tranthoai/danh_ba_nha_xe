@@ -12,9 +12,11 @@
 
 <app-root></app-root>
 
-<script src="/ng/dev/runtime.js" type="module"></script>
-<script src="/ng/dev/polyfills.js" type="module"></script>
-<script src="/ng/dev/main.js" type="module"></script>
+<script src="/ng/dev/runtime.js" defer></script>
+<script src="/ng/dev/polyfills.js" defer></script>
+<script src="/ng/dev/scripts.js" defer></script>
+<script src="/ng/dev/main.js" defer></script>
+
 
 </body>
 

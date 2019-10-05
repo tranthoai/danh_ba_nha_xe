@@ -188,6 +188,7 @@ class NhaXe
     /**
      * @var \Village
      *
+     * @Groups({"read", "write"})
      * @ORM\ManyToOne(targetEntity="Village")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="address2_village_id", referencedColumnName="id")
