@@ -1,4 +1,4 @@
-const serverUrl = 'http://127.0.0.1:8000';
+const serverUrl = 'http://topnhaxe.com';
 export const environment = {
   production: false,
   env: 'dev',
